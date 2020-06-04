@@ -1,12 +1,13 @@
 ---
 title: "Regressão linear simples: um exemplo"
 author: "Fernando Mayer"
-date: "Novembro, 2017"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(comment = NA)
+source("script_dados.R")
 ```
 
 # Definfição do modelo
@@ -17,13 +18,12 @@ $$
 Y = \beta_0 + \beta_1 x + \epsilon
 $$
 
-para dados de distância para parada completa de um veículo em função da
-velocidade no instante de acionamento dos freios. Esse conjunto de dados
-está no objeto `cars`.
+para dados de expectativa de vida em função do PIB per capita. Esse
+conjunto de dados está no arquivo disponível.
 
 ```{r, echo=FALSE}
 ## Carrega o conjunto de dados
-data(cars)
+dados <- read.csv("gapminder_americas.csv")
 ```
 
 # Resumo dos dados
@@ -32,7 +32,7 @@ Um resumo dos dados pode ser visto na tabela abaixo:
 
 ```{r, results="asis", echo=FALSE}
 ## Resumo dos dados
-knitr::kable(summary(cars))
+knitr::kable(summary(dados))
 ```
 
 # Ajuste do modelo
@@ -42,7 +42,7 @@ como pode ser visto abaixo
 
 ```{r}
 ## Ajuste do modelo
-mod <- lm(dist ~ speed, data = cars)
+mod <- lm(log(expVida) ~ log(pibPercap), data = dados)
 ```
 
 Um resumo do ajuste do modelo pode ser visualizado abaixo
@@ -66,32 +66,13 @@ plot(mod)
 par(mfrow = c(1,1))
 ```
 
-# Predição
-
-Assumindo que o ajuste do modelo está adequado, pode-se obter o
-gráfico dos valores preditos sobre o diagrama de dispersão dos
-valores observados.
-
-```{r}
-## Intervalo de valores para predição
-pred <- data.frame(speed = seq(4, 25, by = 0.5))
-## Valores preditos
-ypred <- predict(mod, newdata = pred, interval = "confidence")
-## Inclui valores preditos no data frame
-pred <- cbind(pred, ypred)
-```
-
 Agora podemos visualizar o modelo ajustado aos dados
 
 ```{r, fig.width=5, fig.height=5, fig.align='center'}
-## Gráfico de dispersão
-plot(dist ~ speed, data = cars,
-     xlab = "Velocidade ao acionar os freios",
-     ylab = "Distância para parada completa")
-## Intervalo de predição
-with(pred,
-     matlines(x = speed, y = cbind(fit, lwr, upr),
-              lty = c(1, 2, 2), col = 1))
+library(ggplot2)
+ggplot(data = dados, aes(x = log(pibPercap), y = log(expVida))) +
+    geom_point(color='blue') +
+    geom_smooth(method = "lm", se = FALSE)
 ```
 
 O parâmetro $\beta_1$ desse modelo de regressão linear simples é
