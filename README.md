@@ -24,8 +24,8 @@ renv::restore()
 ### No RStudio
 
 No RStudio, vá no menu `File > Open Project...` e selecione o arquivo
-`estatidados-live.Rproj`. O projeto será carregado e o pacote `renv` será
-instalado automaticamente. Ainda assim, é necessário fazer
+`estatidados-live.Rproj`. O projeto será carregado e o pacote `renv`
+será instalado automaticamente. Ainda assim, é necessário fazer
 
 ```r
 renv::restore()
