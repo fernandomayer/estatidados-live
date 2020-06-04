@@ -42,9 +42,7 @@ como pode ser visto abaixo
 
 Um resumo do ajuste do modelo pode ser visualizado abaixo
 
-```{r}
-## Resumo do modelo
-summary(mod)
+```{r fitres}
 ```
 
 # Análise dos resíduos
@@ -55,10 +53,7 @@ verificados os pressupostos considerados através da análise dos resíduos.
 Por padrão se fizermos um `plot()` no modelo, temos os seguintes
 gráficos para avliar os resíduos:
 
-```{r, fig.show='hold', fig.align='center'}
-par(mfrow = c(2, 2))
-plot(mod)
-par(mfrow = c(1,1))
+```{r residuals, fig.show='hold', fig.align='center'}
 ```
 
 # Predição
@@ -67,26 +62,12 @@ Assumindo que o ajuste do modelo está adequado, pode-se obter o
 gráfico dos valores preditos sobre o diagrama de dispersão dos
 valores observados.
 
-```{r}
-## Intervalo de valores para predição
-pred <- data.frame(speed = seq(4, 25, by = 0.5))
-## Valores preditos
-ypred <- predict(mod, newdata = pred, interval = "confidence")
-## Inclui valores preditos no data frame
-pred <- cbind(pred, ypred)
+```{r pred}
 ```
 
 Agora podemos visualizar o modelo ajustado aos dados
 
-```{r, fig.width=5, fig.height=5, fig.align='center'}
-## Gráfico de dispersão
-plot(dist ~ speed, data = cars,
-     xlab = "Velocidade ao acionar os freios",
-     ylab = "Distância para parada completa")
-## Intervalo de predição
-with(pred,
-     matlines(x = speed, y = cbind(fit, lwr, upr),
-              lty = c(1, 2, 2), col = 1))
+```{r predfig, fig.width=5, fig.height=5, fig.align='center'}
 ```
 
 O parâmetro $\beta_1$ desse modelo de regressão linear simples é
