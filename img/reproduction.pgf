@@ -1,0 +1,25 @@
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+\tikzset{state0/.style={rectangle, draw=black, fill=white, thick, minimum height=10em, minimum width=16em,
+inner sep=30pt, text centered, font=\huge}}
+\tikzset{state1/.style={rectangle, draw=black, fill=white, thick, minimum height=6em, minimum width=14em,
+inner sep=30pt, text centered, font=\huge}}
+
+\begin{tikzpicture}[->, >=latex, line width=0.75pt]
+
+\begin{scope}
+\node[state0, anchor=center](node0) { Estudo 1 };
+\end{scope}
+
+\begin{scope}[xshift=12cm]
+\node[state1](node3) { Resultado X };
+\node[state1, yshift=0cm, below of=node3, node distance=5cm, anchor=center] (node4) { Resultado X };
+\node[state1, yshift=0cm, above of=node3, node distance=5cm, anchor=center] (node5) { Resultado X };
+\end{scope}
+
+\path[dash pattern=on5pt off3pt] (node0) edge[out=0, in=-180] (node3);
+\path[dash pattern=on5pt off3pt] (node0) edge[out=0, in=-180] (node4);
+\path[dash pattern=on5pt off3pt] (node0) edge[out=0, in=-180] (node5);
+
+\end{tikzpicture}
