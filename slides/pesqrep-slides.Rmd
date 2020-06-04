@@ -19,16 +19,14 @@ source("setup_knitr.R")
 
 # Slides
 
-UPDATE
-
 .msmall[
-- HTML: http://leg.ufpr.br/~fernandomayer/pesqrep-eco
-- PDF: http://leg.ufpr.br/~fernandomayer/pesqrep-eco/pesqrep-eco.pdf
-- Código-fonte: https://github.com/fernandomayer/pesqrep-slides
+- HTML: http://leg.ufpr.br/~fernandomayer/palestra/estatidados
+<!-- - PDF: http://leg.ufpr.br/~fernandomayer/pesqrep-eco/pesqrep-eco.pdf -->
+- Código-fonte: https://github.com/fernandomayer/estatidados-live
 ]
 
 ```{r, echo=FALSE, out.width='50%'}
-knitr::include_graphics("qr_img.png")
+knitr::include_graphics("qr_code.png")
 ```
 
 
