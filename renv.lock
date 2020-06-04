@@ -3,7 +3,7 @@
     "Version": "4.0.0",
     "Repositories": [
       {
-        "Name": null,
+        "Name": "http://cran-r.c3sl.ufpr.br",
         "URL": "http://cran-r.c3sl.ufpr.br"
       }
     ]
@@ -36,6 +36,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "543776ae6848fde2f48ff3816d0628bc"
+    },
+    "bookdown": {
+      "Package": "bookdown",
+      "Version": "0.19.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "bookdown",
+      "RemoteUsername": "rstudio",
+      "RemoteRef": "master",
+      "RemoteSha": "fd8dac6029f460591791d4cfbbad9da1bc4314b1",
+      "Hash": "b3e346778cdd62e3f0b525576751458c"
     },
     "digest": {
       "Package": "digest",
@@ -227,6 +239,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "60e146e3aba37a547e12306dc3da77a6"
+    },
+    "xtable": {
+      "Package": "xtable",
+      "Version": "1.8-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b8acdf8af494d9ec19ccb2481a9b11c2"
     },
     "yaml": {
       "Package": "yaml",
