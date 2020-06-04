@@ -8,3 +8,11 @@ Neste repositório você vai encontrar os diretórios:
 
 - `slides`: código fonte dos slides apresentados
 - `rmarkdown`: arquivos de exemplo de documentos dinâmicos
+
+A primeira vez que abrir o R neste diretório (depois de baixar/clonar),
+o pacote `renv` será instalado automaticamente. Para "restaurar" todos
+os pacotes necessários aqui, faça
+
+```r
+renv::restore()
+```
