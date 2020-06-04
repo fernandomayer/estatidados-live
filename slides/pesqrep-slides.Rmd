@@ -2,10 +2,9 @@
 title: "Pesquisa reproduzível"
 subtitle: "Fundamentos e ferramentas"
 author: "Fernando Mayer (LEG/DEST/UFPR)"
-date: 2019-09-13
+date: 2020-06-04
 output:
   xaringan::moon_reader:
-    # css: ["default", "fc.css", "fc-fonts.css"]
     css: ["default", "ibm-plex.css", "ibm-plex-fonts.css"]
     self_contained: FALSE
     nature:
@@ -19,6 +18,8 @@ source("setup_knitr.R")
 ```
 
 # Slides
+
+UPDATE
 
 .msmall[
 - HTML: http://leg.ufpr.br/~fernandomayer/pesqrep-eco
@@ -119,11 +120,8 @@ class: center, middle, inverse
 
 1. Conceber **hipóteses alternativas**.
 2. Conceber um **experimento crucial** (ou vários deles)
-  - Possíveis resultados alternativos
-  - Cada um poderá **excluir**, dentro do possível, **uma ou mais
-    hipóteses**
-3. Realizar o experimento de forma a obter resultados mais confiáveis
-   possíveis.
+3. Realizar o experimento de forma a obter **resultados mais confiáveis
+   possíveis**
 4. **Reciclar o procedimento**
   - Criar sub-hipóteses ou hipóteses sequenciais para refinar as
    possibilidades que restam
@@ -160,28 +158,6 @@ Box, Hunter e Hunter, 2005):
 ```{r, echo=FALSE, out.width='70%'}
 knitr::include_graphics("../img/deduction-induction.png")
 ```
-
----
-# Como a ciência funciona
-
-## Um loop de feedback
-
-```{r, echo=FALSE, out.width='80%'}
-knitr::include_graphics("../img/feedback-loop.png")
-```
-
----
-# Como a ciência funciona
-
-```{r, echo=FALSE, out.width='60%'}
-knitr::include_graphics("../img/feynman.jpg")
-```
-
-> *As declarações da ciência não são sobre o que é verdade e o que não é
-verdade, mas declarações do que é conhecido com **diferentes graus de
-certeza** *
-
-@[ProfFeynman](https://twitter.com/ProfFeynman)
 
 ---
 # Como a ciência funciona
@@ -295,7 +271,7 @@ resultados finais do projeto, incluindo as descobertas quantitativas,
 tabelas e figuras, **dado apenas um conjunto de arquivos e instruções
 escritas**.
 
-> Justin Kitzes
+> *Justin Kitzes*
 
 ---
 # Replicação e reprodução na Ciência
@@ -325,21 +301,6 @@ então **qual o propósito de uma pesquisa reproduzível**?
 - Mudanças futuras são mais fáceis
 ]
 ]
-
----
-# Replicação e reprodução na Ciência
-
-**Possíveis preocupações:**
-
-- Como fica a questão da **propriedade intelectual**?
-
-- Como fica a disponibilização de dados que foram coletados com
-  **financiamento** privado ou público?
-
-- Até que ponto a disponibilização dos dados não irá prejudicar meus
-  **projetos futuros**?
-
-- Será que não posso sofrer **plágio**?
 
 ---
 # Replicação e reprodução na Ciência
@@ -416,33 +377,6 @@ geometria.*
 ]
 
 ---
-# Replicação e reprodução no Brasil
-
-```{r, echo=FALSE, out.width='100%'}
-knitr::include_graphics("../img/fapesp.png")
-```
-
-<!-- - [Revista FAPESP, 2014](http://revistapesquisa.fapesp.br/2014/04/24/ciencia-transparente/?cat=politica) -->
-<!-- - [Revista FAPESP, 2018](http://revistapesquisa.fapesp.br/2018/01/16/informacao-com-qualidade/?cat=politica) -->
-<!-- - [Revista FAPESP, 2018](http://revistapesquisa.fapesp.br/2018/03/20/disseminacao-desigual/?cat=politica) -->
-
----
-# Replicação e reprodução no Brasil
-
-```{r, echo=FALSE, out.width='50%'}
-knitr::include_graphics("../img/iniciativa.png")
-```
-
-- Estimar a reprodutibilidade da ciência biomédica brasileira
-- A meta é **reproduzir uma amostra de 50 a 100 experimentos de artigos
-brasileiros** em 3 a 5 áreas diferentes de pesquisa
-- Cada experimento será **reproduzido em 3 laboratórios diferentes**,
-com protocolos pré-registrados e o mais próximo do estudo original
-- A meta é estimar a reprodutibilidade da ciência brasileira de maneira
-ampla e **propor soluções para melhorá-la**
-- https://www.reprodutibilidade.bio.br
-
----
 class: center, middle, inverse
 # Elementos da reprodutibilidade
 
@@ -475,6 +409,23 @@ como:
 - Rastreadores de *bugs*
 - Testes unitários
 - Automação de tarefas
+
+---
+# Elementos da reprodutibilidade
+
+## Boas práticas para a computação científica
+
+[Wilson, 2014, *PLoS*, Best prectices for scientific
+computing](https://doi.org/10.1371/journal.pbio.1001745)
+
+1. Escreva programas para humanos, não para computadores
+2. Deixe o computador fazer o trabalho
+3. Faça alterações incrementais
+4. Não repita você mesmo (ou outros)
+5. Prepare-se para erros
+6. Otimize código apenas depois que ele funcionar
+7. Documente a ideia e o propósito, não a mecânica
+8. Colabore
 
 ---
 class: center, middle, inverse
@@ -584,6 +535,25 @@ No R:
 ---
 # Ferramentas da reprodutibilidade
 
+## Documentos dinâmicos
+
+Para detalhes veja:
+
+[Pesquisa reproduzível com o R: de documentos dinâmicos a
+pacotes](http://cursos.leg.ufpr.br/prr/index.html)
+`r icon::fa("external-link-alt")`
+
+1. [Literate programming](http://cursos.leg.ufpr.br/prr/capLitProg.html)
+ `r icon::fa("external-link-alt")`
+2. [Markdown com Pandoc](http://cursos.leg.ufpr.br/prr/capMarkdown.html)
+ `r icon::fa("external-link-alt")`
+3. [Documentos dinâmicos no
+   R](http://cursos.leg.ufpr.br/prr/capMarkdown.html)
+ `r icon::fa("external-link-alt")`
+
+---
+# Ferramentas da reprodutibilidade
+
 ## Distribuição de dados
 
 A disponibilização (e aquisição) de dados abertos pode ser feita através
@@ -604,38 +574,62 @@ de **repositórios de dados**.
 ---
 # Ferramentas da reprodutibilidade
 
-## Distribuição de dados na UFPR
+## "Empacotando" tudo junto
 
-```{r, echo=FALSE, out.width='60%'}
-knitr::include_graphics("../img/bdc.png")
-```
+Para garantir a reprodutibilidade, o ideal é distribuir dados, códigos,
+documentos dinâmicos, etc, em um único "pacote". Algumas formaa de fazer
+isso:
 
-- A Base de Dados Científicos da Universidade Federal do Paraná
-(BDC/UFPR) é o resultado de uma parceria entre o Centro de Computação
-Científica e Software Livre (C3SL), e o Sistema de Bibliotecas (SiBi)
-UFPR.
-- Visa reunir os dados científicos utilizados nas pesquisas que foram
-publicadas pela comunidade da UFPR em teses, dissertações, artigos de
-revistas, e outros materiais bibliográficos.
-- Também possui DOI
-- https://bdc.c3sl.ufpr.br/
+- Criando um pacote no R
+  - Scripts como funções e documentos dinâmicos como *vignettes*
+  - Ajuda (mas não garante) que os pacotes utilizados sejam das mesmas
+    versões
+  - Veja [Pacotes R](http://cursos.leg.ufpr.br/prr/capPacR.html)
+  `r icon::fa("external-link-alt")`
 
 ---
 # Ferramentas da reprodutibilidade
 
-## Exemplos de pesquisa reproduzível
+## "Empacotando" tudo junto
 
-**Paper companions** do LEG (desde 2008)
+Para garantir a reprodutibilidade, o ideal é distribuir dados, códigos,
+documentos dinâmicos, etc, em um único "pacote". Algumas formaa de fazer
+isso:
 
-- Ideia de distribuir códigos e dados de artigos publicados
-- http://www.leg.ufpr.br/papercompanions
-  - Zeviani, *et al*. [The Gamma-count distribution in the analysis of
-  experimental underdispersed
-  data](http://www.leg.ufpr.br/doku.php/publications:papercompanions:zeviani-jas2014).
-  *Journal of Applied Statistics*, 2014.
-  - Bonat & Ribeiro Jr. [Practical likelihood analysis for spatial
-  generalized linear mixed
-  models](http://www.leg.ufpr.br/doku.php/publications:papercompanions:sglmm). *Environmetrics*, 2015.
+- Usando um "gerenciador de pacotes locais" ou "gerenciador de
+  ambientes" no R
+  - Cria um **ambiente auto-contido**, incluindo todos os pacotes
+    necessários em suas versões específicas
+  - Antigamente: `packrat`, hoje: `renv`
+  - Toda a estrutura de um projeto é compartilhada *as is* (dados,
+    scripts, documentos dinâmicos, etc)
+  - **Garante** que os pacotes utilizados por qualquer pessoa, em
+    qualquer tempo, sejam sempre os mesmos
+  - Veja [renv: Project Environments for
+  R](https://kevinushey-2020-rstudio-conf.netlify.app/slides.html)
+
+---
+# Ferramentas da reprodutibilidade
+
+## "Empacotando" tudo junto
+
+Para garantir a reprodutibilidade, o ideal é distribuir dados, códigos,
+documentos dinâmicos, etc, em um único "pacote". Algumas formaa de fazer
+isso:
+
+- Criando uma imagem Docker
+  - Proposta muito mais genérica do que as anteriores
+  - Usa o conceito de virtualização (a nível de SO) para criar
+    **containers**: "blocos" auto-contidos com todos os softwares
+    necessários (em versões específicas)
+  - **Garante** a reprodutibilidade de maneira muito mais geral
+  - É mais complexo do que as soluções anteriores
+  - Veja [A Docker tutorial for reproducible
+  research](https://ropenscilabs.github.io/r-docker-tutorial/)
+
+---
+class: center, middle, inverse
+# Mais recursos
 
 ---
 # Mais recursos
