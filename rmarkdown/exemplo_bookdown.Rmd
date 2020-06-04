@@ -1,0 +1,125 @@
+---
+title: "Meu título"
+author: Fernando de Pol Mayer
+bibliography: ref.bib
+csl: abntex2.csl
+geometry: margin=2.5cm
+papersize: a4
+output: bookdown::pdf_document2
+---
+
+```{r setup, include=FALSE}
+library(xtable)
+## Opções comuns utilizadas em todas as tabelas usando xtable
+options(xtable.caption.placement = "top",
+        xtable.include.rownames = FALSE,
+        xtable.comment = FALSE)
+## Opções comuns para o knitr
+knitr::opts_chunk$set(echo = FALSE,
+                      out.width = "80%",
+                      fig.align = "center")
+```
+
+# Introdução
+
+Para citar referências, basta usar a sintaxe `@key` (similar ao
+`\citet{key}`), ou `[@key]` (similar ao `\citep{key}`).
+
+Por exemplo, podemos citar no texto, segundo @Mood1974. No entanto,
+podemos deixar para fazer a citação no final da frase
+[@Casella-Berger2011].
+
+Note que o estilo de citação padrão é a do abn\TeX2, conforme as
+regras definidas no arquivo `abntex2.csl` (*citation style language*).
+Variações nas citações também são permitidas, por exemplo [ver
+@Wilks1962, pp. 199; @Mood1974, pp. 229].
+
+# Metodologia
+
+## Dados
+
+Os dados podem ser apresentados em uma tabela, que pode ser
+referenciada. Por exemplo, veja a Tabela \@ref(tab:dados).
+
+
+```{r, results='asis'}
+da <- head(iris)
+xtable(da, caption =
+               "Uma legenda para essa tabela com \\textbf{xtable}.",
+       label = "tab:dados")
+```
+
+Note que a tabela acima foi gerada usando o pacote **xtable**, que
+funciona bem para \LaTeX{}, mas pode não ser portável caso queira
+utilizar o mesmo texto em uma página HTML, por exemplo. Por isso, a
+mesma tabela pode também ser gerada pela função `knitr::kable()`. Note
+que agora, o *label* de referência é o próprio nome do chunk, com o
+prefixo `tab:`, veja Tabela \@ref(tab:dados2).
+
+```{r dados2, results='asis'}
+knitr::kable(da, caption =
+                     "Uma legenda para essa tabela com \\textbf{kable}.")
+```
+
+Esse é mais um texto só para empurrar a próxima sessão para baixo.
+Aproveito para citar mais um artigo de @Bonat2018, e outro no final do
+parágrafo [@OHara2009].
+
+## Modelos
+
+Equações matemáticas funcionam normalmente com a sintaxe do \LaTeX{},
+como por exemplo
+
+\begin{equation*}
+P(X = x) = \frac{e^{-\lambda} \lambda^x}{x!},
+  \quad x = 0, 1, 2, \ldots .
+\end{equation*}
+
+As equações também podem ser referenciadas no texto, bastando adicionar
+um label no formato `(\#eq:binom)`, como por exemplo
+
+\begin{equation}
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}.
+  (\#eq:binom)
+\end{equation}
+
+Para referenciar a equação \@ref(eq:binom), use `\@ref(eq:binom)`.
+
+Existem várias opções de ambientes, inclusive para definições, teoremas
+e provas. Veja [essa página](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#equations).
+
+# Resultados esperados
+
+O principal resultado do projeto é obter um gráfico tão impressionante
+quanto aquele que está representado na Figura \@ref(fig:disp). Note que,
+para figuras, o label do chunk vira a referência. Aqui esse label é
+`disp`, portanto, a referência para a figura fica `fig:disp`, e usamos
+`\@ref(fig:disp)`. Outra coisa importante é que, para isso funcionar, é
+necessário obrigatoriamente especificar uma legenda nas próprias opções
+do chunk, com a opção `fig.cap`.
+
+```{r disp, fig.cap='Uma legenda para esse gráfico.',fig.pos="!h"}
+plot(Petal.Length ~ Petal.Width, data = iris)
+```
+
+Uma figura externa também pode ser incluída. Nesse caso, a melhor opção
+é usar a função `include_graphics()` do **knitr**, e controlar a
+aparência com as opções do chunk. Veja um exemplo na Figura
+\@ref(fig:leg).
+
+```{r leg, fig.cap="O logo do LEG.", out.width="50%"}
+knitr::include_graphics("leg.pdf")
+```
+
+Também é possível incluir códigos, se for necessário. Veja no próximo
+parágrafo como isso funciona.
+
+Uma descrição da base de dados `iris` pode ser obtida com a função
+`str()`, que descreve todas as variáveis presentes em um objeto da
+classe `data.frame`. Veja o resultado da chamada dessa função abaixo.
+
+```{r, echo=TRUE}
+str(iris)
+```
+
+# Referências
