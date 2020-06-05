@@ -14,7 +14,7 @@ Neste repositório você vai encontrar os diretórios:
 
 - `exemplos_renv`: os dois arquivos zipados são exemplos de projetos
   compartilhados com o `renv`. O diretório `regressao` contém arquivos
-  que podem ser usados como exemplo para iniciar um projeto como `renv`.
+  que podem ser usados como exemplo para iniciar um projeto com o `renv`.
 - `rmarkdown`: arquivos de exemplo de documentos dinâmicos.
 - `slides`: código fonte dos slides apresentados.
 
